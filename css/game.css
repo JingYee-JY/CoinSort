@@ -1,0 +1,72 @@
+.top{
+    padding: var(--sidePadding);
+    padding-top: 30px;
+    margin-bottom: 30px;
+    max-height: 75px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.question,.score{
+    font-size: 36px;
+    border-radius: 10px;
+    padding: var(--sidePadding);
+    height: var(--fullsize);
+    background-color: var(--gameTopBackground);
+}
+
+.score{
+    display: flex;
+    padding: 0px;
+    justify-content: flex-end;
+}
+
+.score-count,.point{
+    padding: 0px 10px;
+}
+
+.point{
+    border-radius: 10px;
+    background-color: var(--pointBackground);
+}
+
+.game{
+    position: relative;
+    width: var(--fullsize);
+    height: var(--fullsize);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    padding: var(--sidePadding);
+}
+
+/*add here for more code*/
+.game p{
+    font-size: 40px;
+}
+
+.showMoney{
+    width: 70%;
+}
+
+.buttonChoices{
+    width: var(--fullsize);
+    gap: 20px;
+    font-size: 36px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.choiceBtn,.correctAnswer{
+    background-image: url("../img/piggybank.png");
+    background-size: 100% 100%;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+.correctAnswer{
+    font-size: 50px;
+    width: 70%;
+}

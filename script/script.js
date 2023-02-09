@@ -231,85 +231,81 @@ function endGame(){
     let pass = total / 2
 
     //this is for first version
-    if(levelIndex == 0){//REMOVE THIS
-        if(score < pass){
-            lose.currentTime = 0
-            lose.play()
-            medal.classList.add("hidden")
-            scoreText.textContent = "You tried!"
-            words1.innerHTML = "Good try!"
-            words2.textContent = "do better next time"
-        }
-        else{
-            clap.currentTime = 0
-            clap.play() 
-            medal.classList.remove("hidden")
-            scoreText.textContent = "Good job!"
-            words1.innerHTML = `You got <br> ${score} right!`
-            words2.textContent = ""
+    /*if(score < pass){
+        lose.currentTime = 0
+        lose.play()
+        medal.classList.add("hidden")
+        scoreText.textContent = "You tried!"
+        words1.innerHTML = "Good try!"
+        words2.textContent = "do better next time"
+    }
+    else{
+        clap.currentTime = 0
+        clap.play() 
+        medal.classList.remove("hidden")
+        scoreText.textContent = "Good job!"
+        words1.innerHTML = `You got <br> ${score} right!`
+        words2.textContent = ""
+        setTimeout(function(){
+            confetti.start()
             setTimeout(function(){
-                confetti.start()
-                setTimeout(function(){
-                    confetti.stop()
-                }, 2000)
-            }, 500)
-        }
-    } //REMOVE THIS
+                confetti.stop()
+            }, 2000)
+        }, 500)
+    }*/
 
     //this is for second version
-    else{//REMOVE THIS
-        let starScore = total / 5;
-        //change the star image according the score;
-        if(score < pass){
-            lose.currentTime = 0
-            lose.play()
-            if(score == starScore + starScore)
-                    medal.src = "./img/youTried.png"
-                else if(score < starScore + starScore && score >= starScore) // score < 2 && score >= 1
-                    medal.src = "./img/youTried1.png"
-                else
-                    medal.src = "./img/youTried2.png"
-
-            group1.classList.add("group1V2")
-            scoreText.textContent = "Good try!"
-            scoreText.classList.add("scoreTextV2")
-            words1.classList.add("words1V2")
-            words2.classList.add("words2V2")
-            words1.innerHTML = "Your score"
+    let starScore = total / 5;
+    //change the star image according the score;
+    if(score < pass){
+        lose.currentTime = 0
+        lose.play()
+        if(score == starScore + starScore)
+                medal.src = "./img/youTried.png"
+            else if(score < starScore + starScore && score >= starScore) // score < 2 && score >= 1
+                medal.src = "./img/youTried1.png"
+            else
+                medal.src = "./img/youTried2.png"
+    
+        group1.classList.add("group1V2")
+        scoreText.textContent = "Good try!"
+        scoreText.classList.add("scoreTextV2")
+        words1.classList.add("words1V2")
+        words2.classList.add("words2V2")
+        words1.innerHTML = "Your score"
+    }
+    else{
+        clap.currentTime = 0
+        clap.play()
+        if(score == total) // score = 5
+            medal.src = "./img/excellent.png"
+        else if(score < total && score >= total - starScore) // score < 5 && score >= 4
+            medal.src = "./img/wellDone.png"
+        else if(score < total - starScore && score >= (total - starScore - starScore)) // score < 4 && score >= 3
+            medal.src = "./img/wellDone1.png"
+    
+        group1.classList.add("group1V2")
+        words1.classList.add("words1V2")
+        words2.classList.add("words2V2")
+    
+        scoreText.classList.add("scoreTextV2")
+    
+        if(score == total){
+            scoreText.textContent = "Superstar!"
         }
         else{
-            clap.currentTime = 0
-            clap.play()
-            if(score == total) // score = 5
-                medal.src = "./img/excellent.png"
-            else if(score < total && score >= total - starScore) // score < 5 && score >= 4
-                medal.src = "./img/wellDone.png"
-            else if(score < total - starScore && score >= (total - starScore - starScore)) // score < 4 && score >= 3
-                medal.src = "./img/wellDone1.png"
-
-            group1.classList.add("group1V2")
-            words1.classList.add("words1V2")
-            words2.classList.add("words2V2")
-
-            scoreText.classList.add("scoreTextV2")
-
-            if(score == total){
-                scoreText.textContent = "Superstar!"
-            }
-            else{
-                scoreText.textContent = "Good try!"
-            }
-
-            setTimeout(function(){
-                confetti.start()
-                setTimeout(function(){
-                    confetti.stop()
-                }, 2000)
-            }, 500)
+            scoreText.textContent = "Good try!"
         }
-        words1.innerHTML = "Your score"
-        words2.textContent = score + "/" + total
-    } //REMOVE THIS
+    
+        setTimeout(function(){
+            confetti.start()
+            setTimeout(function(){
+                confetti.stop()
+            }, 2000)
+        }, 500)
+    }
+    words1.innerHTML = "Your score"
+    words2.textContent = score + "/" + total
 }
 
 /*prevent double tag zoom*/
